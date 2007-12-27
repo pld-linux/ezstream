@@ -1,12 +1,12 @@
 Summary:	Command-line source client for Icecast media streaming servers
 Summary(pl.UTF-8):	Klient źródłowy dla serwerów strumieni multimedialnych Icecast
 Name:		ezstream
-Version:	0.5.2
+Version:	0.5.3
 Release:	1
 License:	GPL v2
 Group:		Applications/Multimedia
 Source0:	http://downloads.xiph.org/releases/ezstream/%{name}-%{version}.tar.gz
-# Source0-md5:	5f608530cdd9748f7556b5b1e0b77d85
+# Source0-md5:	a07941d52a4705f8d02c9c9ee6e05750
 URL:		http://www.icecast.org/ezstream.php
 BuildRequires:	libogg-devel >= 2:1.0
 BuildRequires:	libshout-devel >= 2.2
