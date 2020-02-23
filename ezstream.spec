@@ -1,20 +1,20 @@
 Summary:	Command-line source client for Icecast media streaming servers
 Summary(pl.UTF-8):	Klient źródłowy dla serwerów strumieni multimedialnych Icecast
 Name:		ezstream
-Version:	0.6.0
+Version:	1.0.1
 Release:	1
 License:	GPL v2
 Group:		Applications/Multimedia
-Source0:	http://downloads.xiph.org/releases/ezstream/%{name}-%{version}.tar.gz
-# Source0-md5:	913fffa04a5631e5f9d0ee19945045a4
+Source0:	https://downloads.xiph.org/releases/ezstream/%{name}-%{version}.tar.gz
+# Source0-md5:	b96db5dfb17dae88a86bd34b0c7a3640
 URL:		http://www.icecast.org/ezstream.php
-BuildRequires:	libogg-devel >= 2:1.0
 BuildRequires:	libshout-devel >= 2.2
-BuildRequires:	libvorbis-devel >= 1:1.0
 BuildRequires:	libxml2-devel >= 2.0
 BuildRequires:	pkgconfig
 BuildRequires:	sed >= 4.0
 BuildRequires:	taglib-devel >= 1.4
+Requires:	libshout >= 2.2
+Requires:	taglib >= 1.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,7 +29,7 @@ strumieni multimedialnych Icecast.
 %setup -q
 
 # strip GPL text
-sed -i -e '12,$d' COPYING
+%{__sed} -i -e '12,$d' COPYING
 
 %build
 %configure
@@ -50,8 +50,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc COPYING ChangeLog NEWS README examples
+%doc COPYING ChangeLog NEWS README.md examples
 %attr(755,root,root) %{_bindir}/ezstream
+%attr(755,root,root) %{_bindir}/ezstream-cfgmigrate
 %attr(755,root,root) %{_bindir}/ezstream-file.sh
 %{_mandir}/man1/ezstream.1*
+%{_mandir}/man1/ezstream-cfgmigrate.1*
 %{_mandir}/man1/ezstream-file.sh.1*
